@@ -8,7 +8,7 @@ class QLearningTable:
         self.lr = lr
         self.gamma = gamma
         self.epsilon = epsilon
-        self.q_table = pd.DataFrame(columns=self.action, dtype=np.float64)
+        self.q_table = pd.DataFrame(columns=self.actions, dtype=np.float64)
 
     def choose_action(self, observation):
         self.add_state(observation)
