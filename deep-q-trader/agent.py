@@ -25,7 +25,7 @@ class Agent:
         self.epsilon_decay = 0.995
 
         self.model = load_model(
-            'models/' + self.model_name if is_eval else self.create_model())
+            'models/' + self.model_name) if is_eval else self.create_model()
 
     def create_model(self):
         model = Sequential()
@@ -43,7 +43,7 @@ class Agent:
         self.action_history = []
 
     def act(self, state, price_data):
-        if not self.is_eval and np.randomo.rand() <= self.epsilon:
+        if not self.is_eval and np.random.rand() <= self.epsilon:
             action = random.randrange(self.action_size)
         else:
             actions = self.model.predict(state)
@@ -95,7 +95,7 @@ class Agent:
                 target = reward
             else:
                 next_q_values = self.model.predict(next_state)[0]
-                target = reward + self.gamma * np.argmax(next_q_values)
+                target = reward + self.gamma * np.amax(next_q_values)
 
             predicted_target = self.model.predict(state)
             predicted_target[0][action] = target

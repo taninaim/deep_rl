@@ -39,7 +39,7 @@ class Market:
         self.index += 1
         if self.index > self.last_data_index:
             self.index = 0
-        next_state = self.state[self.index + 1]
+        next_state = self.states[self.index + 1]
         next_price_data = self.data[self.index + 1]
 
         price_data = self.data[self.index]
